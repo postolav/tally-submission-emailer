@@ -38,7 +38,7 @@ const sendEmail = async (toEmail, subject, templateName, replacements) => {
             host: 'smtp.gmail.com',
             port: 587,
             secure: true, // initial value was false
-            auth: { user: 'team@uniportal.io', pass: 'jodz uwoa gpar sgms' }
+            auth: { user: 'team@uniportal.io', pass: process.env.AUTH_PASS }
         });
 
         const mailOptions = {
@@ -59,7 +59,7 @@ const sendEmail = async (toEmail, subject, templateName, replacements) => {
 app.post('/webhook', (req, res) => {
     // Verify signature
     const receivedSignature = req.headers['tally-signature'];
-    const signingSecret = 'ac0ed02d-dcb0-4f62-a50b-6233151e02fa';
+    const signingSecret = process.env.SIGNING_SECRET;
 
     const calculatedSignature = createHmac('sha256', signingSecret)
         .update(JSON.stringify(req.body))
