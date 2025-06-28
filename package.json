@@ -1,0 +1,27 @@
+{
+  "name": "tally-submission-emailer",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000t\u0000a\u0000l\u0000l\u0000y\u0000-\u0000s\u0000u\u0000b\u0000m\u0000i\u0000s\u0000s\u0000i\u0000o\u0000n\u0000-\u0000e\u0000m\u0000a\u0000i\u0000l\u0000e\u0000r\u0000\r\u0000 \u0000",
+  "main": "api/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/postolav/tally-submission-emailer.git"
+  },
+  "keywords": [],
+  "author": "Vlad Postolachi",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/postolav/tally-submission-emailer/issues"
+  },
+  "homepage": "https://github.com/postolav/tally-submission-emailer#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.8",
+    "nodemailer": "^7.0.3"
+  }
+}
