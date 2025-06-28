@@ -1,3 +1,5 @@
+import logAction from './logger';
+
 const nodemailer = require('nodemailer');
 const express = require('express');
 const handlebars = require('handlebars');
@@ -47,9 +49,9 @@ const sendEmail = async (toEmail, subject, templateName, replacements) => {
         };
 
         const info = await transporter.sendMail(mailOptions);
-        console.log('Email sent:', info.response);
+        logAction('Email sent to ', toEmail, ' :', info.response);
     } catch (error) {
-        console.error('Error sending email:', error);
+        logAction('Error sending email:', error);
     }
 };
 
@@ -65,9 +67,13 @@ app.post('/webhook', (req, res) => {
 
     if (receivedSignature === calculatedSignature) {
         // Signature is valid, process the body
-        res.status(200).send('Webhook received & processed successfully');
+        const message = 'Webhook received & processed successfully';
+        res.status(200).send(message);
+        logAction(message);
     } else {
-        res.status(401).send('Invalid signature');
+        const message = 'Invalid signature';
+        res.status(401).send(message);
+        logAction(message);
     }
 
     // const hmac = crypto.createHmac('sha256', process.env.signingSecret);
