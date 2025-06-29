@@ -56,7 +56,7 @@ const sendEmail = async (toEmail, subject, templateName, replacements) => {
 };
 
 // Webhook endpoint
-app.post('/webhook', (req, res) => {
+app.post('/api/webhook', (req, res) => {
     // Verify signature
     const receivedSignature = req.headers['tally-signature'];
     const signingSecret = process.env.SIGNING_SECRET;
@@ -95,7 +95,7 @@ app.post('/webhook', (req, res) => {
     //     html: '' // TODO include email body
     // });
 
-    sendEmail(respondentEmail, '🚀 One Step Closer to Stress-Free Workflows', 'welcomeEmail', { firstName: respondentName });
+    sendEmail(respondentEmail, '🌟 One Step Closer to Your Semester Abroad', 'welcomeEmail', { firstName: respondentName });
 
     res.sendStatus(200);
 });
